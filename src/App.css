@@ -1,38 +1,83 @@
+/* App.css */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  margin-top: 60px;
+  
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #171717;
+  padding: 20px 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.header-icon {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.App-title {
+  margin: 0;
+  font-size: 2rem;
+  color: #ffffff;
+  flex: 1;
+}
+
+.header-icon:last-of-type {
+  margin-right: 0;
+}
+@media (max-width: 600px) {
+  .App-header h1 {
+    font-size: 1.5em;
+  }
+
+  .header-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.content-grid {
+  padding: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.content-grid::-webkit-scrollbar {
+  display: none;
+}
+.search-bar-container {
+  padding: 10px;
+  background-color: #171717;
+}
+
+.search-bar {
+  background-color: white;
+  border-radius: 4px;
+}
+
+/* Ensure all grid items are the same size */
+.MuiGrid-item {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.content-card {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  margin-bottom: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.content-card-title {
+  color: #ffffff !important;
+  font-size: 1rem !important;
+  background-color: #171717;
+  font-family: 'Titillium Web', sans-serif !important;
 }

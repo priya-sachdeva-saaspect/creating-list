@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import ContentGrid from "./components/ContentGrid";
+import SearchBar from "./components/SearchBar";
+import "./App.css";
 
 function App() {
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const toggleSearch = () => {
+    setIsSearchVisible(!isSearchVisible);
+  };
+
+  const handleSearch = (query) => {
+    setSearchQuery(query);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img
+          src="https://test.create.diagnal.com/images/Back.png"
+          alt="Back"
+          className="header-icon"
+        />
+        <h1 className="App-title">Romantic Comedy</h1>
+        <img
+          src="https://test.create.diagnal.com/images/search.png"
+          alt="Search"
+          className="header-icon"
+          onClick={toggleSearch}
+        />
       </header>
+      {isSearchVisible && <SearchBar onSearch={handleSearch} />}
+      <ContentGrid searchQuery={searchQuery} />
     </div>
   );
 }
